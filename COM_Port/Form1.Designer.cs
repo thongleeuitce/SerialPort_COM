@@ -55,6 +55,7 @@
             // 
             // comboBox_selectCOM
             // 
+            this.comboBox_selectCOM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_selectCOM.FormattingEnabled = true;
             this.comboBox_selectCOM.Location = new System.Drawing.Point(428, 53);
             this.comboBox_selectCOM.Name = "comboBox_selectCOM";
@@ -80,6 +81,7 @@
             this.txtbx_receiverData.Location = new System.Drawing.Point(50, 33);
             this.txtbx_receiverData.Multiline = true;
             this.txtbx_receiverData.Name = "txtbx_receiverData";
+            this.txtbx_receiverData.ReadOnly = true;
             this.txtbx_receiverData.Size = new System.Drawing.Size(320, 264);
             this.txtbx_receiverData.TabIndex = 3;
             // 
@@ -109,6 +111,7 @@
             // 
             // comboBox_BaudRate
             // 
+            this.comboBox_BaudRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_BaudRate.FormattingEnabled = true;
             this.comboBox_BaudRate.Location = new System.Drawing.Point(428, 109);
             this.comboBox_BaudRate.Name = "comboBox_BaudRate";

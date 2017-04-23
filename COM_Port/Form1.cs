@@ -14,7 +14,10 @@ namespace COM_Port
 {
     public partial class Form1 : Form
     {
-        int ports_length = 0;
+        private int ports_length = 0;
+        private String Time_start;
+        private String Time_end;
+
         public Form1()
         {
             InitializeComponent();
@@ -36,6 +39,10 @@ namespace COM_Port
             if (lb_status.Text.Equals("Disconnected"))
             {
                 Com.PortName = comboBox_selectCOM.Text;
+                txtbx_receiverData.Clear();
+                Time_start = DateTime.Now.ToString("yyyy_MM_dd HH_mm_ss");
+                txtbx_receiverData.Text = Time_start;
+                txtbx_receiverData.Text += "\r\n";
                 Com.Open();
                 btn_open.Text = "Close";
                 lb_status.Text = "Connected";
@@ -43,6 +50,9 @@ namespace COM_Port
             else
             {
                 Com.Close();
+                Time_end = DateTime.Now.ToString("yyyy_MM_dd HH_mm_ss");
+                txtbx_receiverData.Text += Time_end;
+                txtbx_receiverData.Text += "\r\n";
                 btn_open.Text = "Open";
                 lb_status.Text = "Disconnected";               
             }
@@ -88,11 +98,20 @@ namespace COM_Port
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            FileInfo data = new FileInfo(@"D:\data.txt");
+            if (lb_status.Text.Equals("Connected")) 
+            {
+                Time_end = DateTime.Now.ToString("yyyy_MM_dd HH_mm_ss");
+                txtbx_receiverData.Text += Time_end;
+                txtbx_receiverData.Text += "\r\n";                
+            }
+            FileInfo data = new FileInfo(@"D:\" + Time_start + ".txt");
             StreamWriter data_wr = data.CreateText();
             data_wr.WriteLine(txtbx_receiverData.Text);
             data_wr.Close();
             txtbx_receiverData.Clear();
+            Time_start = DateTime.Now.ToString("yyyy_MM_dd HH_mm_ss");
+            txtbx_receiverData.Text += Time_start;
+            txtbx_receiverData.Text += "\r\n";
         }
     }
 }
