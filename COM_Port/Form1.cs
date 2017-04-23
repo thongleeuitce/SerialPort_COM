@@ -17,23 +17,11 @@ namespace COM_Port
         private int ports_length = 0;
         private String Time_start;
         private String Time_end;
-
         public Form1()
         {
             InitializeComponent();
-            init_Baund();
+            comboBox_BaudRate.Text = Convert.ToString(Com.BaudRate);
         }
-
-        private void init_Baund()
-        {
-            int[] Baud = new int[] { 600, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 56000, 57600, 115200 };
-            comboBox_BaudRate.Items.Clear();
-            for (int i = 0; i < Baud.Length; i++)
-                comboBox_BaudRate.Items.Add(Baud[i]);
-            comboBox_BaudRate.Text = Convert.ToString(Baud[4]);
-            Com.BaudRate = Convert.ToInt16(comboBox_BaudRate.Text);
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (lb_status.Text.Equals("Disconnected"))

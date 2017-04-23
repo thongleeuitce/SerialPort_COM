@@ -113,6 +113,18 @@
             // 
             this.comboBox_BaudRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_BaudRate.FormattingEnabled = true;
+            this.comboBox_BaudRate.Items.AddRange(new object[] {
+            "600",
+            "1200",
+            "2400",
+            "4800",
+            "9600",
+            "14400",
+            "19200",
+            "38400",
+            "56000",
+            "57600",
+            "115200"});
             this.comboBox_BaudRate.Location = new System.Drawing.Point(428, 109);
             this.comboBox_BaudRate.Name = "comboBox_BaudRate";
             this.comboBox_BaudRate.Size = new System.Drawing.Size(121, 21);
