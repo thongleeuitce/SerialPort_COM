@@ -32,12 +32,15 @@ namespace COM_Port
                 txtbx_receiverData.Text = Time_start;
                 txtbx_receiverData.Text += "\r\n";
                 Com.Open();
+                Com.WriteLine("1");
                 btn_open.Text = "Close";
                 lb_status.Text = "Connected";
+               
             }
             else
             {
                 Com.Close();
+                Com.WriteLine("0");
                 Time_end = DateTime.Now.ToString("yyyy_MM_dd HH_mm_ss");
                 txtbx_receiverData.Text += Time_end;
                 txtbx_receiverData.Text += "\r\n";
